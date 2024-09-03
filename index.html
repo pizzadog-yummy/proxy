@@ -42,7 +42,7 @@
       const corsProxy = "https://corsproxy.io/?";
 
       function refresh() {
-        const url = "https://example.com"
+        const url = location.search;
         fetch(`${corsProxy}${encodeURIComponent(url)}`)
           .then((response) => {
             if (!response.ok) {
