@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body, iframe {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe 
+        srcdoc="
+            <!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Loading..</title>
+                <style>
+                    body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
+                    h1, p { color: blue; }
+                </style>
+            </head>
+            <body>
+                <h1>Please wait!</h1>
+                <p>The code is being fetched and served. It should take under 10 seconds.</p>
+            </body>
+            </html>
+        " id="
+          code
+        " >
+    </iframe>
+  <script>
+    function refresh() {
+
+    }
+
+    function serve(code) {
+      document.getElementById("code").srcdoc = code;
+    }
+
+    function get(url) {
+      fetch(`https://corsproxy.io/?${url}`)
+        .then(code => { return code });
+    }
+  </script>
+</body>
+</html>
